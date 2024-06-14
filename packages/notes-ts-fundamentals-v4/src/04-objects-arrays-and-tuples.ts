@@ -1,56 +1,62 @@
 //* Objects
+let myCar = {
+  make: "Honda",
+  model: "Accord",
+  year: 2019
+}
 
 let car: {
   make: string
   model: string
   year: number
+} = myCar
+
+
+// ? A function that prints info about a car to stdout
+function printCar(car: {
+    make: string
+    model: string
+    year: number
+    chargeVoltage?: number
+}, color='unknown') {
+  let str = `${car.make} ${car.model} (${car.year})`
+  if (typeof car.chargeVoltage !== "undefined")
+    str += `// ${car.chargeVoltage}v`
+
+  console.log(str)
 }
 
-/*
-//? A function that prints info about a car to stdout
-// function printCar(car: {
-//     make: string
-//     model: string
-//     year: number
-// }) {
-//     console.log(`${car.make} ${car.model} (${car.year})`)
-// }
+printCar(car)
 
-// printCar(car)
 
-/*
 //* Optional properties
 //? Insert into function printCar
-// let str = `${car.make} ${car.model} (${car.year})`
-// car.chargeVoltage
-// if (typeof car.chargeVoltage !== "undefined")
-//   str += `// ${car.chargeVoltage}v`
 
-/*
-// printCar({ //? original fn works
-//     make: "Honda",
-//     model: "Accord",
-//     year: 2017,
-// })
 
-// printCar({ //? optional property works too!
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     chargeVoltage: 220,
-// })
 
-/*
+printCar({ //? original fn works
+    make: "Honda",
+    model: "Accord",
+    year: 2017,
+})
+
+printCar({ //? optional property works too!
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+    chargeVoltage: 220,
+})
+
 //* Excess property checking
 
-// printCar({
-//     make: "Tesla",
-//     model: "Model 3",
-//     year: 2020,
-//     color: "RED", //? EXTRA PROPERTY
-// })
+let color = "RED"
+printCar({
+    make: "Tesla",
+    model: "Model 3",
+    year: 2020,
+}, color)
 
-/*
+
 //* Index signatures
 
 //? Dictionary of phone #s
